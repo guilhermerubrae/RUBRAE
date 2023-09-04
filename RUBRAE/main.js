@@ -81,3 +81,58 @@ for (const produtoCatalogo of catalogo) {
     document.getElementById("container-produto").innerHTML += cartaoProduto;
 }
 
+//kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+// Crie um array vazio para representar o carrinho de compras
+const carrinhoDeCompras = [];
+
+// Função para atualizar a exibição do carrinho
+function atualizarCarrinho() {
+  const carrinhoElement = document.getElementById("itens-carrinho");
+  const totalElement = document.getElementById("total-carrinho");
+
+  // Limpe o conteúdo do carrinho antes de atualizá-lo
+  carrinhoElement.innerHTML = "";
+
+  let total = 0;
+
+  // Percorra o carrinho e adicione os itens ao elemento HTML
+  for (const item of carrinhoDeCompras) {
+    const itemElement = document.createElement("li");
+    itemElement.textContent = `${item.nome} - $${item.preco}`;
+    carrinhoElement.appendChild(itemElement);
+    total += item.preco;
+  }
+
+  // Atualize o total do carrinho
+  totalElement.textContent = total;
+}
+
+// Percorra o catálogo e adicione um evento de clique aos botões "Adicionar"
+for (const produtoCatalogo of catalogo) {
+  const cartaoProduto = `<div id="card-produto">
+    <img src="./assets/img/${produtoCatalogo.nomeArquivoImagem}"
+     alt="Produto 1" 
+     style="height: 300px" 
+    />
+    <p>${produtoCatalogo.marca}</p>
+    <p>${produtoCatalogo.nome}</p>
+    <p>$${produtoCatalogo.preco}</p>
+    <button onclick="adicionarAoCarrinho(${produtoCatalogo.id})">Adicionar</button>
+    </div>`;
+
+  document.getElementById("container-produto").innerHTML += cartaoProduto;
+}
+
+// Função para adicionar um produto ao carrinho
+function adicionarAoCarrinho(produtoId) {
+  // Encontre o produto pelo ID no catálogo
+  const produto = catalogo.find((item) => item.id === produtoId);
+
+  // Adicione o produto ao carrinho de compras
+  carrinhoDeCompras.push(produto);
+
+  // Atualize a exibição do carrinho
+  atualizarCarrinho();
+}
+
+

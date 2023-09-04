@@ -1,5 +1,12 @@
+/* Importe o CSS do Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Seu CSS personalizado abaixo */
+
 body {
-    background-color: rgb(14, 2, 2);
+    background-color: rgb(16, 24, 21);
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -13,7 +20,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./assets/img/metal.jpg');
+    background-image: url('./assets/img/metal1.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -31,9 +38,50 @@ body::before {
     }
 }
 
-}
-
 header {
     font-size: 36px; /* Tamanho de cabeçalho semelhante à Zara */
     font-family: ITC Avant Garde Gothic;
-}jjj
+    background-color: black; /* Cor de fundo preta para o cabeçalho */
+    color: white; /* Cor do texto no cabeçalho */
+    padding: 10px; /* Adicione um espaçamento interno ao cabeçalho para melhor legibilidade */
+    position: fixed; /* Fixe o cabeçalho no topo da janela de visualização */
+    top: 0; /* Coloque o cabeçalho no topo da página */
+    width: 100%; /* Defina a largura do cabeçalho como 100% da largura da janela de visualização */
+    text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+}
+
+#container-produto {
+    text-align: center; /* Centralize os elementos dentro do contêiner */
+}
+
+#card-produto {
+    display: inline-block; /* Exibe os elementos lado a lado */
+    margin: 10px; /* Adicione margem entre os cartões de produtos */
+    text-align: left; /* Alinhe o texto à esquerda dentro do cartão */
+}
+
+#card-produto img {
+    max-width: 100%; /* Garante que a imagem não seja maior que o contêiner do cartão */
+}
+
+#card-produto p {
+    margin: 5px 0; /* Adicione um pequeno espaçamento vertical entre os parágrafos */
+    text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+}
+
+#card-produto button {
+    background-color: #37414d; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remova a borda do botão */
+    padding: 5px 10px; /* Adicione um pequeno preenchimento ao botão */
+    cursor: pointer; /* Mude o cursor para uma mão quando passar o mouse sobre o botão */
+    text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+}
+
+#card-produto button:hover {
+    background-color: #131416; /* Cor de fundo do botão quando hover */
+}
+
+main {
+    margin-top: 60px; /* Adicione um espaço no topo para evitar que o cabeçalho corte o conteúdo */
+}
